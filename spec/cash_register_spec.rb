@@ -89,3 +89,29 @@ describe 'CashRegister' do
   end
 end
 
+
+
+    
+    class Cash_Register 
+  attr_accessor :add_items, :add_prices, :calculate_discounts, :keep_track_of_items, :void, :apply_dicount
+  
+  @@all = []
+  
+  def initialize(add_items, add_prices, calculate_discount, keep_track_of_items, void)
+    
+    @add_items = add_items
+    @add_prices = add_prices
+    @calculate_discount = calculate_discount
+    @keep_track_of_items = keep_track_of_items
+    @void = void 
+    @apply_dicount = apply_dicount
+    
+    @@all << self
+    
+    def select.all
+      @@all
+    end
+  end
+    
+    
+    
