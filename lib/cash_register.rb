@@ -3,8 +3,8 @@ class CashRegister
     attr_reader :title
 
     # discount is optional, so we pass it in as an argument with a default value
-    # we make total a constant since we want every instance of CashRegister to always start at 0
-    # thus, we don't pass it as an argument; we can just set it equal to 0 
+    # we make total a constant since we want the total of every instance of CashRegister to always start at 0
+    # thus, we don't pass the total in as an argument; we can just set it equal to 0 
     def initialize(discount = 0)
         @total = 0
         @discount = discount
@@ -13,8 +13,10 @@ class CashRegister
 
     # unless specified, the quantity of any given item we add to our cart is 1 
     def add_item(title, price, quantity = 1)
-        @total += price*quantity 
-        @last_transaction = price*quantity 
+        @total += price * quantity 
+        # the above is equivalent to the below
+        # @total = @total + (price * quantity)
+        @last_transaction = price * quantity 
         # we need to add every item into our items array, even if they are the same thing
         # so we want to run the below block as many times as the number of the quantity of the item added
         quantity.times do
