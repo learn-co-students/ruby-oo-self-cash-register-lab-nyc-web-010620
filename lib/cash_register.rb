@@ -25,19 +25,19 @@ class CashRegister
     end 
 
     # think about how a discount works - it is usually for a certain percentage off your total
+    # if it helps, think of a mathematical example 
+        # ex: total = 100, discount = 10 (this is a percent)
+    # to get from the discount percentage to a decimal (or float), we divide the percentage amount by 100
+        # from the example , to calculate the discounted total, I would do the below math:
+        # 100-(100*(10/100))
+    # to now see the dollar amount that you get off the total, multiply the total by the discount float
+    # now, to get the discounted total, we subtract the discount (dollar) amount from the total 
+    # the above logic can be represented by code as follows:
+        # discount_float = discount / 100
+        # discount_amount = total * discount_float
+        # @total = total - discount_amount 
     def apply_discount
         if discount != 0
-            # if it helps, think of a mathematical example 
-                # ex: total = 100, discount = 10 (this is a percent)
-            # to get from the discount percentage to a decimal (or float), we divide the percentage amount by 100
-                # from the example , to calculate the discounted total, I would do the below math:
-                    # 100-(100*(10/100))
-            # to now see the dollar amount that you get off the total, multiply the total by the discount float
-            # now, to get the discounted total, we subtract the discount (dollar) amount from the total 
-            #the above can be represented by code as follows:
-                # discount_float = discount / 100
-                # discount_amount = total * discount_float
-                # @total = total - discount_amount 
             @total = (total - (total*discount)/100)
             "After the discount, the total comes to $#@total."
         else 
