@@ -1,6 +1,6 @@
 class CashRegister
-    attr_accessor :total, :discount, :quantity, :items, :last_transaction
-    attr_reader :title, :price
+    attr_accessor :total, :discount, :quantity, :items, :last_transaction, :price 
+    attr_reader :title
 
     # discount is optional, so we pass it in as an argument with a default value
     # we make total a constant since we want every instance of CashRegister to always start at 0
